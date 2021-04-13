@@ -1,6 +1,12 @@
 <?php
 require_once 'vendor/autoload.php';
-require_once 'vendor/autoload.php';
+//require_once 'vendor/autoload.php';
+require_once dirname(__FILE__).'/log4php/Logger.php';
+Logger::configure(dirname(__FILE__).'/resources/appender_console.properties');
+
+$logger2 = Logger::getRootLogger();
+$logger2->debug("Hello World - log4j!");
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 //require_once dirname(__FILE__) . '/le_php-master/logentries.php';
