@@ -50,6 +50,23 @@ $logger->pushHandler(new StreamHandler('php://stdout', Logger::WARNING));
 
 $logger->error("Something happened");
 
+ $local_config_file = dirname(__FILE__).'/application.properties');;
+  $raw_content = file_get_contents($local_config_file);
+var_dump($raw_content);
+
+$ECWID_PROFILE =  $_ENV['ECWID_PROFILE'];
+$raw_content = null;
+if( !$ECWID_PROFILE ) {
+  //load from local file
+  $local_config_file = dirname(__FILE__).'/application.properties');;
+  $raw_content = file_get_contents($local_config_file);
+} else {
+   $raw_content =  json_decode($ECWID_PROFILE, true)
+}
+ 
+var_dump($raw_content);
+
+
 phpinfo();
 echo 'running';
 ?>
